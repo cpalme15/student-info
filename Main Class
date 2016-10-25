@@ -1,0 +1,19 @@
+package studentinfo;
+
+import java.util.Scanner;
+
+public class Test {
+
+
+	public static void main(String[] args) {
+      Student Stu1=new Student();
+      while(Stu1.answer=true)
+      	{
+    	  Stu1.readinfo();
+      	}
+      
+	      
+		 
+	}
+
+}
