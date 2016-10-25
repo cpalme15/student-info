@@ -1,0 +1,136 @@
+package studentinfo;
+
+import java.util.Scanner;
+
+public class Student {
+private String  firstname;
+private String lastname;
+private int id;
+private int score1;
+private int score2;
+private int score3;
+private double average;
+private char grade;
+public boolean answer=true;
+private String fullname;
+Scanner k=new Scanner(System.in);
+
+ 
+
+
+public Student(){
+	firstname=" ";
+	lastname=" ";
+	id=0;
+	score1=0;
+	score2=0;
+	score3=0;
+	average=0.0;
+	grade=' ';
+}
+    public Student(String fs, String ls, 
+    int i, int s1, int s2, int s3, double a, char g)
+    	{
+    		setfirstname(fs);
+    		setlastname(ls);
+    		setid(i);
+    		setscore1(s1);
+    		setscore2(s2);
+    		setscore3(s3);
+    		setaverage(a);
+    		setgrade(g);
+    	}
+	public void setfirstname( String fs)
+		{
+	 		firstname=fs;
+		}
+	public String getfirstname()
+		{
+		 	return firstname;
+		}
+ 	public void setlastname(String ls)
+ 		{
+ 			lastname=ls;
+ 		}
+ 	public String getlastname()
+ 		{
+	 		return lastname;
+		}
+ 
+ 	public void setid(int i)
+ 		{
+ 			id=i;
+ 		}
+ 	public int getid()
+ 		{
+ 			return id;
+ 		}
+ 	public void setscore1(int s1)
+ 		{
+ 			score1=s1;
+ 		}
+ 	public int getscore1()
+		{
+			return score1;
+		}
+ 	public void setscore2(int s2)
+ 		{
+ 			score2=s2;
+ 		}
+ 	public int getscore2()
+		{
+			return score2;
+		}
+ 	public void setscore3(int s3)
+ 		{
+ 			score3=s3;
+ 		}
+ 	public int getscore3()
+		{
+			return score3;
+		}
+ 	public void setaverage(double a)
+ 		{
+ 			average=a;
+ 		}
+ 	public double getaverage()
+ 		{
+ 			return average;
+ 		}
+ 	public void setgrade(char g)
+ 		{
+ 		 	grade=g;
+ 		}
+ 	public char getgrade()
+ 		{
+ 			return grade;
+ 		}
+ 	public boolean readinfo()
+ 		{ while(answer!=true);System.out.println("Enter Student Name(Type John Doe to quit):");
+         fullname=k.nextLine();
+         firstname=fullname.substring(0,fullname.indexOf(" "));
+         lastname=fullname.substring(fullname.indexOf(" ")+1); 
+        		 while(!"John Doe".equals(fullname))
+         		{
+        	 		System.out.println("Enter Student ID:");
+        	 		id=k.nextInt();
+        	 		System.out.println("Enter Score1:");
+        	 		score1=k.nextInt();
+        	 		System.out.println("Enter Score 2:");
+        	 		score2=k.nextInt();
+        	 		System.out.println("Enter Score 3:");
+        	 		score3=k.nextInt();
+        	 		return answer=true;
+         		}
+        		 return answer=false;
+ 			}
+ 	
+ 		
+ 	@Override
+	public String toString()
+			{
+				return "LastName   "+"FirstName  "+"ID       "+"S1   "+ " S2"+"   S3"+"  AVG     "+
+						"  GRADE\n"+lastname +firstname+id+score1+score2+score3+average+grade;
+			}
+ 	
+}
