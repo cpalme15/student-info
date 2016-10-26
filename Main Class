@@ -1,18 +1,21 @@
 package studentinfo;
 
-public class Test {
+public class Test 
+{
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
       Student Freshman=new Student();
-      while(Freshman.answer==true);{
-    	  Freshman.readinfo();
+    do{ 
+          Freshman.readinfo();
+          if(Freshman.answer==true){
       	  Freshman.computeAverage();
       	  Freshman.computeGrade();
-      	  Freshman.printAll();
-      }
-	      
-		 
-	}
-
+      	  Freshman.printAll();}
+    }while(Freshman.answer==true);
+      
+      	  
+           
+    }
 }
