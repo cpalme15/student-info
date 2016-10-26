@@ -11,8 +11,8 @@ private int score2;
 private int score3;
 private double average;
 private char grade;
-public boolean answer=false;
 private String fullname;
+public boolean answer;
 Scanner k=new Scanner(System.in);
 
  
@@ -42,7 +42,7 @@ public Student(){
     	}
     public void setName(String fs,String ls)
     {
-    	 fullname = fs+ls;
+    	 fullname = firstname+lastname;
     }
     public String getName()
     {
@@ -113,14 +113,14 @@ public Student(){
  		{
  			return grade;
  		}
- 	public void readinfo()
+ 	public boolean readinfo()
  		{
         		 do
          		{   
         	         System.out.println("Enter Student Name(Type John Doe to quit):");
         	         fullname=k.nextLine();
         	         lastname=fullname.substring( fullname.indexOf(" ")+1); 
-        	         firstname=fullname.substring(0,fullname.indexOf(" "));
+        	         firstname=fullname.substring(0,fullname.indexOf(" ")+1);
         	         if (!"John Doe".equals(fullname)){
         	 		System.out.println("Enter Student ID:");
         	 		id=k.nextInt();
@@ -130,9 +130,11 @@ public Student(){
         	 		score2=k.nextInt();
         	 		System.out.println("Enter Score 3:");
         	 		score3=k.nextInt();
-        	 		 answer=true;}
-        	         answer=false;
-         		}while(answer==true);
+        	 		
+					return answer=true;
+        	 		}
+        	     return answer=false;
+         		}while(fullname!="John Doe");
         		
         				 
         	}
@@ -166,4 +168,3 @@ public Student(){
  	
  	
 }
-
