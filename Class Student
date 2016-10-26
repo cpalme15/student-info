@@ -120,9 +120,7 @@ public Student(){
         	         System.out.println("Enter Student Name(Type John Doe to quit):");
         	         fullname=k.nextLine();
         	         lastname=fullname.substring( fullname.indexOf(" ")+1); 
-        	         firstname=fullname.substring(0,fullname.indexOf(" ")+1);
-        	         System.out.println(lastname);
-        	         System.out.println(firstname);
+        	         firstname=fullname.substring(0,fullname.indexOf(" "));
         	         if (!"John Doe".equals(fullname)){
         	 		System.out.println("Enter Student ID:");
         	 		id=k.nextInt();
@@ -140,7 +138,7 @@ public Student(){
         	}
  	public void computeAverage()
  	{
- 		average=(double)((score1+score2+score3)/3);
+ 		average=(score1+score2+score3)/3.00;
  	}
  	public void computeGrade()
  	{
@@ -157,11 +155,11 @@ public Student(){
  	}
  	public void printAll()
  	{
- 		System.out.printf("LastName %2s","FirstName "+"%2s","ID %4s","S1 %4s","S2 %4s","S3 %4s","AVG %7s","Grade"+"\n");
- 		System.out.println("\n---------------------------------------");
- 		System.out.printf(lastname+"%3s",firstname+"%2d",id+"%4d",score1+"%4d",score2+
- 				"%4d",score3+"%5.2f",average+"%7s",grade);
- 		System.out.println("\n---------------------------------------");
+ 		System.out.printf("%s%10s%4s%4s%4s%4s%6s%7s","LastName","FirstName","ID ","S1 ","S2 ","S3 ","AVG ","Grade");
+ 		System.out.println("\n-------------------------------------------------");
+ 		System.out.printf("%s%10s%8d%4d%4d%4d%5.2f%5c",lastname,firstname,id,score1,score2
+ 				,score3,average,grade);
+ 		System.out.println("\n-------------------------------------------------");
  		
  	}
  	
