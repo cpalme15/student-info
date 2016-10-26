@@ -11,7 +11,7 @@ private int score2;
 private int score3;
 private double average;
 private char grade;
-public boolean answer=true;
+public boolean answer=false;
 private String fullname;
 Scanner k=new Scanner(System.in);
 
@@ -40,6 +40,14 @@ public Student(){
     		setaverage(a);
     		setgrade(g);
     	}
+    public void setName(String fs,String ls)
+    {
+    	 fullname = fs+ls;
+    }
+    public String getName()
+    {
+    	return fullname;
+    }
 	public void setfirstname( String fs)
 		{
 	 		firstname=fs;
@@ -105,13 +113,17 @@ public Student(){
  		{
  			return grade;
  		}
- 	public boolean readinfo()
- 		{ while(answer!=true);System.out.println("Enter Student Name(Type John Doe to quit):");
-         fullname=k.nextLine();
-         firstname=fullname.substring(0,fullname.indexOf(" "));
-         lastname=fullname.substring(fullname.indexOf(" ")+1); 
-        		 while(!"John Doe".equals(fullname))
-         		{
+ 	public void readinfo()
+ 		{
+        		 do
+         		{   
+        	         System.out.println("Enter Student Name(Type John Doe to quit):");
+        	         fullname=k.nextLine();
+        	         lastname=fullname.substring( fullname.indexOf(" ")+1); 
+        	         firstname=fullname.substring(0,fullname.indexOf(" ")+1);
+        	         System.out.println(lastname);
+        	         System.out.println(firstname);
+        	         if (!"John Doe".equals(fullname)){
         	 		System.out.println("Enter Student ID:");
         	 		id=k.nextInt();
         	 		System.out.println("Enter Score1:");
@@ -120,17 +132,40 @@ public Student(){
         	 		score2=k.nextInt();
         	 		System.out.println("Enter Score 3:");
         	 		score3=k.nextInt();
-        	 		return answer=true;
-         		}
-        		 return answer=false;
- 			}
- 	
+        	 		 answer=true;}
+        	         answer=false;
+         		}while(answer==true);
+        		
+        				 
+        	}
+ 	public void computeAverage()
+ 	{
+ 		average=(double)((score1+score2+score3)/3);
+ 	}
+ 	public void computeGrade()
+ 	{
+ 		if(average>=90&&average<=100)
+ 			grade='A';
+ 		else if(average>=80&&average<=89.9)
+ 			grade='B';
+ 		else if (average>=70&&average<=79.9)
+ 			grade='C';
+ 		else if(average>=60&&average<=69.9)
+ 			grade='D';
+ 		else
+ 			grade='F';
+ 	}
+ 	public void printAll()
+ 	{
+ 		System.out.printf("LastName %2s","FirstName "+"%2s","ID %4s","S1 %4s","S2 %4s","S3 %4s","AVG %7s","Grade"+"\n");
+ 		System.out.println("\n---------------------------------------");
+ 		System.out.printf(lastname+"%3s",firstname+"%2d",id+"%4d",score1+"%4d",score2+
+ 				"%4d",score3+"%5.2f",average+"%7s",grade);
+ 		System.out.println("\n---------------------------------------");
  		
- 	@Override
-	public String toString()
-			{
-				return "LastName   "+"FirstName  "+"ID       "+"S1   "+ " S2"+"   S3"+"  AVG     "+
-						"  GRADE\n"+lastname +firstname+id+score1+score2+score3+average+grade;
-			}
+ 	}
+ 	
+ 	
  	
 }
+
