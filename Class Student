@@ -12,7 +12,7 @@ private int score3;
 private double average;
 private char grade;
 private String fullname;
-public boolean answer;
+private boolean answer;
 Scanner k=new Scanner(System.in);
 
  
@@ -27,6 +27,8 @@ public Student(){
 	score3=0;
 	average=0.0;
 	grade=' ';
+	answer=true;
+   while(answer==true){readinfo();}
 }
     public Student(String fs, String ls, 
     int i, int s1, int s2, int s3, double a, char g)
@@ -52,92 +54,71 @@ public Student(){
 		{
 	 		firstname=fs;
 		}
-	public String getfirstname()
-		{
-		 	return firstname;
-		}
+	
  	public void setlastname(String ls)
  		{
  			lastname=ls;
  		}
- 	public String getlastname()
- 		{
-	 		return lastname;
-		}
  
  	public void setid(int i)
  		{
  			id=i;
  		}
- 	public int getid()
- 		{
- 			return id;
- 		}
+ 	
  	public void setscore1(int s1)
  		{
  			score1=s1;
  		}
- 	public int getscore1()
-		{
-			return score1;
-		}
+ 
  	public void setscore2(int s2)
  		{
  			score2=s2;
  		}
- 	public int getscore2()
-		{
-			return score2;
-		}
+ 
  	public void setscore3(int s3)
  		{
  			score3=s3;
  		}
- 	public int getscore3()
-		{
-			return score3;
-		}
+ 	
  	public void setaverage(double a)
  		{
  			average=a;
  		}
- 	public double getaverage()
- 		{
- 			return average;
- 		}
+ 	
  	public void setgrade(char g)
  		{
  		 	grade=g;
  		}
- 	public char getgrade()
- 		{
- 			return grade;
- 		}
+ 	
  	public boolean readinfo()
- 		{  answer=true;
+ 		{
         		 do
          		{   
-        	         System.out.print("Enter Student Name(Type John Doe to quit):");
+        	         System.out.println("Enter Student Name(Type John Doe to quit):");
         	         fullname=k.nextLine();
         	         lastname=fullname.substring( fullname.indexOf(" ")+1); 
         	         firstname=fullname.substring(0,fullname.indexOf(" ")+1);
-        	         if (!"John Doe".equals(fullname)){
-        	 		System.out.print("Enter Student ID:");
+        	         if (!"John Doe".equals(fullname))
+        	      {
+        	 		System.out.println("Enter Student ID:");
         	 		id=k.nextInt();
-        	 		System.out.print("Enter Score1:");
+        	 		System.out.println("Enter Score1:");
         	 		score1=k.nextInt();
-        	 		System.out.print("Enter Score 2:");
+        	 		System.out.println("Enter Score 2:");
         	 		score2=k.nextInt();
-        	 		System.out.print("Enter Score 3:");
+        	 		System.out.println("Enter Score 3:");
         	 		score3=k.nextInt();
-        	 	
-					return answer=true;
-        	 		}
-        	     return answer=false;
-         		}while(fullname!="John Doe");
-        		
+        	 		computeAverage();
+        	 		computeGrade();
+        	 		printAll();
+					return answer= true;
+        	     }
+        	      else 
+        	         return answer= false;
+         		}while(answer==true);
         				 
         	}
+ 	
  	public void computeAverage()
  	{
  		average=(score1+score2+score3)/3.00;
@@ -165,5 +146,6 @@ public Student(){
  		
  	}
  	
- 	}
  	
+ 	
+}
