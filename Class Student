@@ -1,3 +1,5 @@
+
+// programmers: Collin Palmer
 package studentinfo;
 
 import java.util.Scanner;
