@@ -7,9 +7,9 @@ public class Test
 	public static void main(String[] args) 
 	{
       Student Freshman=new Student();
+  
       
-          Freshman.readinfo();
-          if(Freshman.answer==true){
-      	  Freshman.computeAverage();
-      	  Freshman.computeGrade();
-      	  Freshman.printAll();}}}
+    
+    }
+}
+
