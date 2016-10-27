@@ -96,7 +96,7 @@ public Student(){
  		{
         		 do
          		{   
-        	         System.out.println("Enter Student Name(Type John Doe to quit):");
+        	         System.out.print("Enter Student Name(Type John Doe to quit):");
         	         fullname=k.nextLine();
         	         lastname=fullname.substring( fullname.indexOf(" ")+1); 
         	         firstname=fullname.substring(0,fullname.indexOf(" ")+1);
