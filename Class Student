@@ -102,13 +102,13 @@ public Student(){
         	         firstname=fullname.substring(0,fullname.indexOf(" ")+1);
         	         if (!"John Doe".equals(fullname))
         	      {
-        	 		System.out.println("Enter Student ID:");
+        	 		System.out.print("Enter Student ID:");
         	 		id=k.nextInt();
-        	 		System.out.println("Enter Score1:");
+        	 		System.out.print("Enter Score1:");
         	 		score1=k.nextInt();
-        	 		System.out.println("Enter Score 2:");
+        	 		System.out.print("Enter Score 2:");
         	 		score2=k.nextInt();
-        	 		System.out.println("Enter Score 3:");
+        	 		System.out.print("Enter Score 3:");
         	 		score3=k.nextInt();
         	 		computeAverage();
         	 		computeGrade();
