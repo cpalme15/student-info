@@ -1,5 +1,3 @@
-
-// programmers: Collin Palmer, Zachariah Pelletier
 package studentinfo;
 
 import java.util.Scanner;
@@ -14,7 +12,6 @@ private int score3;
 private double average;
 private char grade;
 private String fullname;
-private boolean answer;
 Scanner k=new Scanner(System.in);
 
  
@@ -29,8 +26,11 @@ public Student(){
 	score3=0;
 	average=0.0;
 	grade=' ';
-	answer=true;
-   while(answer==true){readinfo();}
+   while(readinfo()!=false)
+   {
+   computeAverage();
+	computeGrade();
+	printAll();}
 }
     public Student(String fs, String ls, 
     int i, int s1, int s2, int s3, double a, char g)
@@ -94,14 +94,16 @@ public Student(){
  	
  	public boolean readinfo()
  		{
-        		 do
-         		{   
+        		
         	         System.out.print("Enter Student Name(Type John Doe to quit):");
-        	         fullname=k.nextLine();
-        	         lastname=fullname.substring( fullname.indexOf(" ")+1); 
-        	         firstname=fullname.substring(0,fullname.indexOf(" ")+1);
-        	         if (!"John Doe".equals(fullname))
-        	      {
+        	         firstname=k.next();
+        	         lastname=k.next();
+        	         fullname=firstname+" "+lastname;
+        	         if ("John Doe".equals(fullname))
+        	      { return false;
+        	      
+        	      }
+        	         else{
         	 		System.out.print("Enter Student ID:");
         	 		id=k.nextInt();
         	 		System.out.print("Enter Score1:");
@@ -110,16 +112,10 @@ public Student(){
         	 		score2=k.nextInt();
         	 		System.out.print("Enter Score 3:");
         	 		score3=k.nextInt();
-        	 		computeAverage();
-        	 		computeGrade();
-        	 		printAll();
-					return answer= true;
-        	     }
-        	      else 
-        	         return answer= false;
-         		}while(answer==true);
-        				 
-        	}
+        	 		return true;
+        	 		}
+         		}
+         
  	
  	public void computeAverage()
  	{
