@@ -1,17 +1,23 @@
-Programmers: Collin Palmer, Zachariah Pelletier
+/* Programmers: Collin Palmer, Zachariah Pelletier
+ * COSC 111   (2:00)
+ * MP4 
+ * 11/04/16
+ */
 
-package studentinfo;
+	package studentinfo;
 
-public class Test 
-{
-
-
-	public static void main(String[] args) 
+	public class Test 
 	{
-      Student Freshman=new Student();
-  
-      
-    
-    }
-}
 
+
+		public static void main(String[] args) 
+		{
+			Student Freshman=new Student();
+			while(Freshman.readinfo()!=false)
+			{
+				Freshman.computeAverage();
+				Freshman.computeGrade();
+				Freshman.printAll();}
+			}
+		}
+	
