@@ -1,149 +1,147 @@
-package studentinfo;
 
-import java.util.Scanner;
+// Programmers: Collin Palmer, Zachariah Pelletier
 
-public class Student {
-private String  firstname;
-private String lastname;
-private int id;
-private int score1;
-private int score2;
-private int score3;
-private double average;
-private char grade;
-private String fullname;
-Scanner k=new Scanner(System.in);
+	package studentinfo;
+
+	import java.util.Scanner;
+
+	public class Student 
+	{
+		private String  firstname;
+		private String lastname;
+		private int id;
+		private int score1;
+		private int score2;
+		private int score3;
+		private double average;
+		private char grade;
+		private String fullname;
+		Scanner k=new Scanner(System.in);
 
  
-
-
-public Student(){
-	firstname=" ";
-	lastname=" ";
-	id=0;
-	score1=0;
-	score2=0;
-	score3=0;
-	average=0.0;
-	grade=' ';
-   while(readinfo()!=false)
-   {
-   computeAverage();
-	computeGrade();
-	printAll();}
-}
-    public Student(String fs, String ls, 
-    int i, int s1, int s2, int s3, double a, char g)
-    	{
-    		setfirstname(fs);
-    		setlastname(ls);
-    		setid(i);
-    		setscore1(s1);
-    		setscore2(s2);
-    		setscore3(s3);
-    		setaverage(a);
-    		setgrade(g);
-    	}
-    public void setName(String fs,String ls)
-    {
-    	 fullname = firstname+lastname;
-    }
-    public String getName()
-    {
-    	return fullname;
-    }
-	public void setfirstname( String fs)
-		{
-	 		firstname=fs;
-		}
+		public Student(){
+			firstname=" ";
+			lastname=" ";
+			id=0;
+			score1=0;
+			score2=0;
+			score3=0;
+			average=0.0;
+			grade=' ';}
+			
+		public Student(String fs, String ls, 
+		int i, int s1, int s2, int s3, double a, char g)
+    		{
+    			setfirstname(fs);
+    			setlastname(ls);
+    			setid(i);
+    			setscore1(s1);
+    			setscore2(s2);
+    			setscore3(s3);
+    			setaverage(a);
+    			setgrade(g);
+    		}
+		public void setName(String fs,String ls)
+			{
+				fullname = firstname+lastname;
+			}
+		public String getName()
+			{
+				return fullname;
+			}
+		public void setfirstname( String fs)
+			{
+	 			firstname=fs;
+			}
 	
- 	public void setlastname(String ls)
- 		{
- 			lastname=ls;
- 		}
+		public void setlastname(String ls)
+ 			{
+ 				lastname=ls;
+ 			}
  
- 	public void setid(int i)
- 		{
- 			id=i;
- 		}
+		public void setid(int i)
+ 			{
+ 				id=i;
+ 			}
  	
- 	public void setscore1(int s1)
- 		{
- 			score1=s1;
- 		}
+		public void setscore1(int s1)
+ 			{
+ 				score1=s1;
+ 			}	
  
- 	public void setscore2(int s2)
- 		{
- 			score2=s2;
- 		}
+		public void setscore2(int s2)
+ 			{
+				score2=s2;
+ 			}
  
- 	public void setscore3(int s3)
- 		{
- 			score3=s3;
- 		}
+		public void setscore3(int s3)
+ 			{
+ 				score3=s3;
+ 			}	
  	
- 	public void setaverage(double a)
- 		{
- 			average=a;
- 		}
+		public void setaverage(double a)
+ 			{
+				average=a;
+ 			}
  	
- 	public void setgrade(char g)
- 		{
- 		 	grade=g;
- 		}
+		public void setgrade(char g)
+ 			{
+ 		 		grade=g;
+ 			}	
  	
- 	public boolean readinfo()
- 		{
+		public boolean readinfo()
+ 			{
         		
-        	         System.out.print("Enter Student Name(Type John Doe to quit):");
-        	         firstname=k.next();
-        	         lastname=k.next();
-        	         fullname=firstname+" "+lastname;
-        	         if ("John Doe".equals(fullname))
-        	      { return false;
+        	     System.out.print("Enter Student Name(Type John Doe to quit):");
+        	     firstname=k.next();
+        	     lastname=k.next();
+        	     fullname=firstname+" "+lastname;
+        	     if ("John Doe".equals(fullname))
+        	     	{ return false;
         	      
-        	      }
-        	         else{
-        	 		System.out.print("Enter Student ID:");
-        	 		id=k.nextInt();
-        	 		System.out.print("Enter Score1:");
-        	 		score1=k.nextInt();
-        	 		System.out.print("Enter Score 2:");
-        	 		score2=k.nextInt();
-        	 		System.out.print("Enter Score 3:");
-        	 		score3=k.nextInt();
-        	 		return true;
+        	     	}
+        	     else
+        	     	{
+        	 			System.out.print("Enter Student ID:");
+        	 			id=k.nextInt();
+        	 			System.out.print("Enter Score1:");
+        	 			score1=k.nextInt();
+        	 			System.out.print("Enter Score 2:");
+        	 			score2=k.nextInt();
+        	 			System.out.print("Enter Score 3:");
+        	 			score3=k.nextInt();
+        	 			return true;
         	 		}
-         		}
+         	}
          
  	
- 	public void computeAverage()
- 	{
- 		average=(score1+score2+score3)/3.00;
- 	}
- 	public void computeGrade()
- 	{
- 		if(average>=90&&average<=100)
- 			grade='A';
- 		else if(average>=80&&average<=89.9)
- 			grade='B';
- 		else if (average>=70&&average<=79.9)
- 			grade='C';
- 		else if(average>=60&&average<=69.9)
- 			grade='D';
- 		else
- 			grade='F';
- 	}
- 	public void printAll()
- 	{
- 		System.out.printf("%s%11s%4s%12s%5s%5s%6s%11s", "LastName","FirstName","ID ","S1 ","S2 ","S3 ","AVG ","GRADE");
- 		System.out.println("\n--------------------------------------------------------------");
- 		System.out.printf("%-10s%-10s%6d%8d%5d%5d%8.2f%6c",lastname,firstname,id,score1,score2
+		public void computeAverage()
+			{
+				average=(score1+score2+score3)/3.00;
+			}
+		public void computeGrade()
+			{
+				if(average>=90&&average<=100)
+					grade='A';
+				else if(average>=80&&average<=89.9)
+					grade='B';
+				else if (average>=70&&average<=79.9)
+					grade='C';
+				else if(average>=60&&average<=69.9)
+					grade='D';
+				else
+					grade='F';
+			}
+		public void printAll()
+			{
+				System.out.printf("%s%11s%4s%12s%5s%5s%6s%11s", "LastName","FirstName","ID ","S1 ","S2 ","S3 ","AVG ","GRADE");
+				System.out.println("\n--------------------------------------------------------------");
+				System.out.printf("%-10s%-10s%6d%8d%5d%5d%8.2f%6c",lastname,firstname,id,score1,score2
  				,score3,average,grade);
- 		System.out.println("\n--------------------------------------------------------------");
+				System.out.println("\n--------------------------------------------------------------");
  		
- 	}
+			}
  	
  	
  	
-}
+	}
